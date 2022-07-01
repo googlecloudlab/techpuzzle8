@@ -15,7 +15,7 @@ steps:
     entrypoint: 'gcloud'
     timeout: 240s
     args: ['compute', 'instances', 
-           'create-with-container', 'nginx-vm',
+           'update-container', 'nginx-vm',
            '--container-image', 
            'gcr.io/${PROJECT_ID}/techpuzzle8-repo/techpuzzle8:latest']
     env:
