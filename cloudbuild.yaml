@@ -15,9 +15,12 @@ steps:
     entrypoint: 'gcloud'
     timeout: 240s
     args: ['compute', 'instances', 
-           'update-container', 'nginx-vm',
+           'create-with-container', 'nginx-vm',
+           '--image-family', 'cos-stable',
+           '--image-project', 'cos-cloud',
            '--container-image', 
-           'gcr.io/${PROJECT_ID}/techpuzzle8-repo/techpuzzle8:latest']
+           'gcr.io/${PROJECT_ID}/techpuzzle8-repo/techpuzzle8:latest',
+           '--metadata', 'google-logging-enabled=true']
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
